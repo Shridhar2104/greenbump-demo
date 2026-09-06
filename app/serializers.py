@@ -3,20 +3,20 @@ from .models import Order
 
 
 def order_to_dict(order: Order) -> dict:
-    return order.dict()
+    return order.model_dump()
 
 
 def order_to_json(order: Order) -> str:
-    return order.json()
+    return order.model_dump_json()
 
 
 def order_from_dict(data: dict) -> Order:
-    return Order.parse_obj(data)
+    return Order.model_validate(data)
 
 
 def order_from_json(raw: str) -> Order:
-    return Order.parse_raw(raw)
+    return Order.model_validate_json(raw)
 
 
 def order_schema() -> dict:
-    return Order.schema()
+    return Order.model_json_schema()
