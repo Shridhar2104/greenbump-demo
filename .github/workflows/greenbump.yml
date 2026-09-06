@@ -16,6 +16,9 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
       - run: pip install -r requirements.txt
-      - uses: Shridhar2104/greenbump@main
+      - uses: Shridhar2104/greenbump@v1
+        with:
+          # user test: detection only, no spend
+          max-cost-usd: "0"
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
